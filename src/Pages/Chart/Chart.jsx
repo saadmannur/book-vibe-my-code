@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import { Bar, BarChart, Tooltip, XAxis, YAxis, BarShapeProps } from 'recharts';
+import { Bar, BarChart, Tooltip, XAxis, YAxis} from 'recharts';
 
 const Chart = () => {
     const books = useLoaderData();
