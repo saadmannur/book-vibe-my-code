@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { BookContext } from '../../Context/Context';
 import { toast } from 'react-toastify';
+import { addReadListToLocalDB } from '../../Utils/LocalDB';
+import { addWishListTOLocalDB } from '../../Utils/LocalDB2';
 
 const BooksDetails = () => {
 
@@ -27,6 +29,7 @@ const BooksDetails = () => {
             setStoreBook([...storeBook, currentBook]);
             toast.success(`${bookName} is added to read`)
         }
+        addReadListToLocalDB(currentBook);
     }
 
     const handleWishlist = (currentBook) => {
@@ -43,7 +46,9 @@ const BooksDetails = () => {
             setWishlist([...wishlist , currentBook])
             toast.success(`${bookName} is added to Wishlist`)
         }
+        addWishListTOLocalDB(currentBook);
     }
+
 
     return (
         <div className='container mx-auto m-10'>
